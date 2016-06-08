@@ -6,6 +6,7 @@ let $ = require('./plugins.js');
 
 gulp.task('ejs', function () {
     return gulp.src(config.path.ejs.src)
-        .pipe($.ejs({}, { ext: config.ejs.ext }))
-        .pipe(gulp.dest(config.path.ejs.dest))
+        .pipe($.plumber({ errorHandler: $.notify.onError('<%= error.message %>') }))
+        .pipe($.ejs(config.ejs, { ext: config.ejs.ext }))
+        .pipe(gulp.dest(config.path.ejs.dest));
 });

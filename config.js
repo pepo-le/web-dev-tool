@@ -11,6 +11,16 @@ module.exports = {
         autoprefixer: {
             browsers: ['last 3 version', 'ie >= 9', 'Android 4.0'],
             ignore: []
+        },
+        mqpacker: {}
+    },
+    sprite: {
+        imgName: 'sprite.png',
+        cssName: '_sprite.scss',
+        imgPath: '../img/sprite.png',
+        cssFormat: 'scss',
+        cssVarMap: function (sprite) {
+            sprite.name = 'sprite-' + sprite.name;
         }
     },
     browser: {
@@ -48,5 +58,16 @@ module.exports = {
             src: 'src/img/*',
             dest: 'public/img'
         },
+        sprite: {
+            src: 'src/img/sprite/*.png',
+            imgDest: 'src/img/',
+            scssDest: 'src/sass/'
+        },
+        copy: [
+            {
+                from: 'src/lib/**/*',
+                to: 'public/lib'
+            }
+        ]
     }
 }

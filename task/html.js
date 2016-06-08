@@ -11,5 +11,5 @@ gulp.task('html', function () {
         .pipe($.plumber({ errorHandler: $.notify.onError('<%= error.message %>') }))
         .pipe($.htmlhint(config.htmlhint))
         .pipe($.htmlhint.reporter())
-        .pipe($.htmlhint.failReporter())
+        .pipe($.htmlhint.failReporter());
 });

@@ -10,6 +10,6 @@ gulp.task('script', function () {
         .pipe($.eslint())
         .pipe($.eslint.format())
         .pipe($.eslint.failAfterError())
-        .pipe($.babel(config.babel))
-        .pipe(gulp.dest(config.path.script.dest))
+        .pipe($.babel())
+        .pipe(gulp.dest(config.path.script.dest));
 });

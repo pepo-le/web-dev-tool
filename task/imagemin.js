@@ -8,5 +8,5 @@ gulp.task('imagemin', function () {
     return gulp.src(config.path.img.src)
         .pipe($.plumber({ errorHandler: $.notify.onError('<%= error.message %>') }))
         .pipe($.imagemin())
-        .pipe(gulp.dest(config.path.img.dest))
+        .pipe(gulp.dest(config.path.img.dest));
 });
