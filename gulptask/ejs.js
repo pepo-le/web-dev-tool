@@ -1,7 +1,7 @@
 'use strict';
 
 let gulp = require('gulp');
-let config = require('../config.js');
+let config = require('../gulpconfig.js');
 let $ = require('./plugins.js');
 
 gulp.task('ejs', function () {

@@ -2,7 +2,7 @@
 
 let gulp = require('gulp');
 let $ = require('./plugins.js');
-let config = require('../config.js');
+let config = require('../gulpconfig.js');
 
 gulp.task('script', function () {
     return gulp.src(config.path.script.src)

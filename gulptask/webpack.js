@@ -4,7 +4,7 @@
  */
 let gulp = require('gulp');
 let $ = require('./plugins.js');
-let config = require('../config.js');
+let config = require('../gulpconfig.js');
 
 let webpackConfig = require('../webpack.config.js');
 

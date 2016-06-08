@@ -3,9 +3,9 @@
 let gulp = require('gulp');
 let runSequence = require('run-sequence');
 let requireDir = require('require-dir');
-let config = require('./config.js');
+let config = require('./gulpconfig.js');
 
-requireDir('./task', { recurse: true });
+requireDir('./gulptask', { recurse: true });
 
 gulp.task('watch', function () {
     gulp.watch(config.path.html.src, ['html']);

@@ -4,7 +4,7 @@
  */
 let gulp = require('gulp');
 let del = require('del');
-let config = require('../config.js');
+let config = require('../gulpconfig.js');
 
 gulp.task('clean', function (callback) {
     del.sync([config.dist + '/*']);

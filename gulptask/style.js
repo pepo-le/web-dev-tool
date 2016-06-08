@@ -5,7 +5,7 @@
  * ソースマップを出力する
  */
 let gulp = require('gulp');
-let config = require('../config.js');
+let config = require('../gulpconfig.js');
 let $ = require('./plugins');
 
 let autoprefixer = require('autoprefixer');

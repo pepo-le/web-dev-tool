@@ -4,7 +4,7 @@
  * config.jsで指定されたファイルを指定されたディレクトリにコピーする
  */
 let gulp = require('gulp');
-let config = require('../config.js');
+let config = require('../gulpconfig.js');
 let $ = require('./plugins.js');
 
 gulp.task('copy', function () {
