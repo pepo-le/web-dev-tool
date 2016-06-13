@@ -43,7 +43,7 @@ module.exports = {
         ejs: {
             src: ['src/view/**/*.ejs', 'src/view/**/_*.ejs'],
             watch: ['src/view/**/*.ejs'],
-            dest: ''
+            dest: 'dist'
         },
         style: {
             src: ['src/sass/*.scss', '!src/sass/_*.scss'],
