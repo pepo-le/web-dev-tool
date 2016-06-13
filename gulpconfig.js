@@ -1,5 +1,5 @@
 module.exports = {
-    dist: 'public',
+    dist: 'dist',
     htmlhint: '.htmlhintrc',
     ejs: {
         ext: '.html'
@@ -38,25 +38,25 @@ module.exports = {
         srcRoot: 'src',
         html: {
             // 出力先のHTMLをチェックする
-            src: 'public/**/*.html'
+            src: 'dist/**/*.html'
         },
         ejs: {
             src: ['src/view/**/*.ejs', 'src/view/**/_*.ejs'],
             watch: ['src/view/**/*.ejs'],
-            dest: 'public'
+            dest: ''
         },
         style: {
             src: ['src/sass/*.scss', '!src/sass/_*.scss'],
             watch: ['src/sass/*.scss'],
-            dest: 'public/css'
+            dest: 'dist/css'
         },
         script: {
             src: 'src/js/*.js',
-            dest: 'public/js'
+            dest: 'dist/js'
         },
         img: {
             src: 'src/img/*',
-            dest: 'public/img'
+            dest: 'dist/img'
         },
         sprite: {
             src: 'src/img/sprite/*.png',
@@ -66,7 +66,7 @@ module.exports = {
         copy: [
             {
                 from: 'src/lib/**/*',
-                to: 'public/lib'
+                to: 'dist/lib'
             }
         ]
     }
