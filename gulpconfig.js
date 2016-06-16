@@ -54,16 +54,20 @@ module.exports = {
             src: 'src/js/*.js',
             dest: 'dist/js'
         },
-        img: {
-            src: 'src/img/*',
-            dest: 'dist/img'
+        imagemin: {
+            src: 'src/img/imagemin/*',
+            dest: 'src/img'
         },
         sprite: {
             src: 'src/img/sprite/*.png',
-            imgDest: 'src/img/',
-            scssDest: 'src/sass/'
+            imgDest: 'src/img',
+            scssDest: 'src/sass'
         },
         copy: [
+            {
+                from: ['src/img/**/*', '!src/img/sprite/*', '!src/img/imagemin/*'],
+                to: 'dist/img'
+            },
             {
                 from: 'src/lib/**/*',
                 to: 'dist/lib'
