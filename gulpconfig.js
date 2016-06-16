@@ -47,7 +47,7 @@ module.exports = {
             src: 'dist/**/*.html'
         },
         ejs: {
-            src: ['src/view/**/*.ejs', 'src/view/**/_*.ejs'],
+            src: ['src/view/**/*.ejs', '!src/view/**/_*.ejs'],
             watch: ['src/view/**/*.ejs'],
             dest: 'dist'
         },
