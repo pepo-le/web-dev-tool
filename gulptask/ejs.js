@@ -1,5 +1,8 @@
 'use strict';
-
+/**
+ * EJS経由で出力
+ * プレーンなHTMLを出力する場合は積極的に活用しよう
+ */
 let gulp = require('gulp');
 let config = require('../gulpconfig.js');
 let $ = require('./plugins.js');

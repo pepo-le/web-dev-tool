@@ -1,5 +1,7 @@
 'use strict';
-
+/**
+ * png画像からスプライトを作成する
+ */
 let gulp = require('gulp');
 let config = require('../gulpconfig.js');
 let $ = require('./plugins.js');

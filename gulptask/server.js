@@ -1,5 +1,7 @@
 'use strict';
-
+/**
+ * browser-syncで自動リロード
+ */
 let gulp = require('gulp');
 let config = require('../gulpconfig.js');
 let $ = require('./plugins.js');

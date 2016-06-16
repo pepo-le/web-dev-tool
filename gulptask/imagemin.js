@@ -1,5 +1,7 @@
 'use strict';
-
+/**
+ * 画像の圧縮
+ */
 let gulp = require('gulp');
 let config = require('../gulpconfig.js');
 let $ = require('./plugins.js');

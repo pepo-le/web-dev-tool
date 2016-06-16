@@ -1,5 +1,8 @@
 'use strict';
-
+/**
+ * JavaScriptの出力
+ * ファイルはマージしない
+ */
 let gulp = require('gulp');
 let $ = require('./plugins.js');
 let config = require('../gulpconfig.js');

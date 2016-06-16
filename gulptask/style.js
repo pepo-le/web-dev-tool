@@ -1,10 +1,11 @@
 'use strict';
 /**
- * SASS‚ğg—p
- * scss‚ğƒRƒ“ƒpƒCƒ‹‚µ‚Äautoprefixer‚ÅƒvƒŒƒtƒBƒbƒNƒX‚ğ‚Â‚¯‚é
- * ƒ\[ƒXƒ}ƒbƒv‚ğo—Í‚·‚é
+ * SASSã‚’ä½¿ç”¨
+ * scssã‚’ã‚³ãƒ³ãƒ‘ã‚¤ãƒ«ã—ã¦autoprefixerã§ãƒ—ãƒ¬ãƒ•ã‚£ãƒƒã‚¯ã‚¹ã‚’ã¤ã‘ã‚‹
+ * ã‚½ãƒ¼ã‚¹ãƒãƒƒãƒ—ã‚’å‡ºåŠ›ã™ã‚‹
  */
 let gulp = require('gulp');
+let merge = require('merge');
 let config = require('../gulpconfig.js');
 let $ = require('./plugins');
 
@@ -12,8 +13,13 @@ let autoprefixer = require('autoprefixer');
 let cssMqpacker = require('css-mqpacker');
 
 gulp.task('style', function () {
+    config.style = config.style || {};
+    let guideOptions = merge({ out: config.dist + '/styleguide/' }, config.styleguide);
+    let sourcemaps = config.style.sourcemaps || 'maps';
+
     return gulp.src(config.path.style.src)
         .pipe($.plumber({ errorHandler: $.notify.onError('<%= error.message %>') }))
+        .pipe($.frontnote(guideOptions))
         .pipe($.sassLint())
         .pipe($.sassLint.format())
         .pipe($.sassLint.failOnError())
@@ -23,8 +29,6 @@ gulp.task('style', function () {
             autoprefixer(config.style.autoprefixer),
             cssMqpacker(config.style.mqpacker)
         ]))
-        .pipe($.sourcemaps.write('maps', {
-            includeContent: true,
-        }))
+        .pipe($.sourcemaps.write(sourcemaps))
         .pipe(gulp.dest(config.path.style.dest));
 });

@@ -22,7 +22,7 @@ module.exports = {
         ]
     },
     plugins: [
-        // ˆ³kE“ï“Ç‰»
+        // åœ§ç¸®ãƒ»é›£èª­åŒ–
         new webpack.optimize.UglifyJsPlugin({
             compress: {
                 warnings: false

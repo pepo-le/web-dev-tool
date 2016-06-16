@@ -1,7 +1,7 @@
 'use strict';
 /**
- * �����^�X�N
- * config.js�Ŏw�肳�ꂽ�t�@�C�����w�肳�ꂽ�f�B���N�g���ɃR�s�[����
+ * 複製タスク
+ * config.jsで指定されたファイルを指定されたディレクトリにコピーする
  */
 let gulp = require('gulp');
 let config = require('../gulpconfig.js');

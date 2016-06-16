@@ -1,6 +1,6 @@
 'use strict';
 /**
- * webpack‚Åo—Í
+ * webpackã§å‡ºåŠ›
  */
 let gulp = require('gulp');
 let $ = require('./plugins.js');

@@ -1,5 +1,7 @@
 'use strict';
-
+/**
+ * gulpから始まるモジュールを$.<module>で読み込めるようにする
+ */
 let loader = require('gulp-load-plugins');
 let browser = require('browser-sync');
 

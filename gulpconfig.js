@@ -23,6 +23,12 @@ module.exports = {
             sprite.name = 'sprite-' + sprite.name;
         }
     },
+    styleguide: {
+        out: 'dist/styleguide/',
+        css: '../css/style.css',
+        script: '../js/app.js',
+        clean: true
+    },
     browser: {
         proxy: {
             target: ''
@@ -37,7 +43,7 @@ module.exports = {
     path: {
         srcRoot: 'src',
         html: {
-            // o—Íæ‚ÌHTML‚ðƒ`ƒFƒbƒN‚·‚é
+            // å‡ºåŠ›å…ˆã®HTMLã‚’ãƒã‚§ãƒƒã‚¯ã™ã‚‹
             src: 'dist/**/*.html'
         },
         ejs: {

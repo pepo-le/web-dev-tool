@@ -1,6 +1,6 @@
 'use strict';
 /**
- * distディレクトリ以下を削除する
+ * dist繝�繧｣繝ｬ繧ｯ繝医Μ莉･荳九ｒ蜑企勁縺吶ｋ
  */
 let gulp = require('gulp');
 let del = require('del');

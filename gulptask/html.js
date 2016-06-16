@@ -1,6 +1,6 @@
 'use strict';
 /**
- * html‚ğlint‚ÌŒã‚Éo—Í
+ * HTMLã‚’lintã®å¾Œã«å‡ºåŠ›
  */
 let gulp = require('gulp');
 let $ = require('./plugins.js');
