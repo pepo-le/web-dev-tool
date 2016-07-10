@@ -8,6 +8,8 @@ let config = require('../gulpconfig.js');
 
 let webpackConfig = require('../webpack.config.js');
 
+$.webpack = require('webpack-stream');
+
 if (!webpackConfig.entry) {
     delete webpackConfig.entry;
 }
