@@ -14,5 +14,6 @@ gulp.task('script', function () {
         .pipe($.eslint.format())
         .pipe($.eslint.failAfterError())
         .pipe($.babel())
-        .pipe(gulp.dest(config.path.script.dest));
+        .pipe(gulp.dest(config.path.script.dest))
+        .pipe($.browser.stream());
 });

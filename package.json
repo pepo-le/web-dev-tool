@@ -2,7 +2,7 @@
   "name": "deb-tools",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "gulpfile.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -30,6 +30,7 @@
     "gulp-imagemin": "^3.0.1",
     "gulp-load-plugins": "^1.2.4",
     "gulp-notify": "^2.2.0",
+    "gulp-phplint": "^0.1.0",
     "gulp-plumber": "^1.1.0",
     "gulp-postcss": "^6.1.1",
     "gulp-sass": "^2.3.2",
@@ -41,6 +42,7 @@
     "gulp.spritesmith": "^6.2.1",
     "html-loader": "^0.4.3",
     "merge": "^1.2.0",
+    "merge-stream": "^1.0.0",
     "postcss": "^5.0.21",
     "require-dir": "^0.3.0",
     "run-sequence": "^1.2.2",

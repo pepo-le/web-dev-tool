@@ -25,8 +25,8 @@ module.exports = {
     },
     styleguide: {
         out: 'dist/styleguide/',
-        css: '../css/style.css',
-        script: '../js/app.js',
+        css: '../public/css/style.css',
+        script: '../public/js/script.js',
         clean: true
     },
     browser: {
@@ -44,39 +44,39 @@ module.exports = {
         srcRoot: 'src',
         html: {
             // 出力先のHTMLをチェックする
-            src: 'dist/**/*.html'
+            src: 'dist/public/**/*.html'
         },
         ejs: {
-            src: ['src/view/**/*.ejs', '!src/view/**/_*.ejs'],
-            watch: ['src/view/**/*.ejs'],
-            dest: 'dist'
+            src: ['src/public/view/**/*.ejs', '!src/public/view/**/_*.ejs'],
+            watch: ['src/public/view/**/*.ejs'],
+            dest: 'dist/public'
         },
         style: {
-            src: ['src/sass/*.scss', '!src/sass/_*.scss'],
-            watch: ['src/sass/*.scss'],
-            dest: 'dist/css'
+            src: ['src/public/sass/*.scss', '!src/public/sass/_*.scss'],
+            watch: ['src/public/sass/*.scss'],
+            dest: 'dist/public/css'
         },
         script: {
-            src: 'src/js/*.js',
-            dest: 'dist/js'
+            src: 'src/public/js/*.js',
+            dest: 'dist/public/js'
         },
         imagemin: {
-            src: 'src/img/imagemin/*',
-            dest: 'src/img'
+            src: 'src/public/img/imagemin/*',
+            dest: 'src/public/img'
         },
         sprite: {
-            src: 'src/img/sprite/*.png',
-            imgDest: 'src/img',
-            scssDest: 'src/sass'
+            src: 'src/public/img/sprite/*.png',
+            imgDest: 'src/public/img',
+            scssDest: 'src/public/sass/sprite'
         },
         copy: [
             {
-                from: ['src/img/**/*', '!src/img/sprite/*', '!src/img/imagemin/*'],
-                to: 'dist/img'
+                from: ['src/public/img/**/*', '!src/public/img/sprite/*', '!src/public/img/imagemin/*'],
+                to: 'dist/public/img'
             },
             {
-                from: 'src/lib/**/*',
-                to: 'dist/lib'
+                from: 'src/public/lib/**/*',
+                to: 'dist/public/lib'
             }
         ]
     }

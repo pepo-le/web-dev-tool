@@ -5,10 +5,10 @@
  * ソースマップを出力する
  */
 let gulp = require('gulp');
-let merge = require('merge');
 let config = require('../gulpconfig.js');
 let $ = require('./plugins');
 
+let merge = require('merge');
 let autoprefixer = require('autoprefixer');
 let cssMqpacker = require('css-mqpacker');
 
@@ -30,5 +30,6 @@ gulp.task('style', function () {
             cssMqpacker(config.style.mqpacker)
         ]))
         .pipe($.sourcemaps.write(sourcemaps))
-        .pipe(gulp.dest(config.path.style.dest));
+        .pipe(gulp.dest(config.path.style.dest))
+        .pipe($.browser.stream({ match: '**/*.css' }));
 });
