@@ -10,6 +10,7 @@ requireDir('./gulptask', { recurse: true });
 gulp.task('watch', function () {
     gulp.watch(config.path.html.src, ['html']);
     gulp.watch(config.path.ejs.watch, ['ejs']);
+    gulp.watch(config.path.php.src, ['php']);
     gulp.watch(config.path.style.watch, ['style']);
     // JavaScript処理の選択
     gulp.watch(config.path.script.src, ['script']);
@@ -23,8 +24,8 @@ gulp.task('watch', function () {
 });
 
 gulp.task('build', ['clean'], function (callback) {
-    return runSequence(['html', 'ejs', 'style', 'script', 'copy'], callback);
-    //return runSequence(['html', 'ejs', 'style', 'webpack', 'copy'], callback);
+    return runSequence(['html', 'ejs', 'php', 'style', 'script', 'copy'], callback);
+    //return runSequence(['html', 'ejs', 'php', 'style', 'webpack', 'copy'], callback);
 });
 
 gulp.task('default', function () {
