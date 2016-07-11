@@ -53,7 +53,6 @@ module.exports = {
         },
         php: {
             src: ['src/**/*.php', 'src/**/*.ctp'],
-            watch: ['src/**/*.php', 'src/**/*.ctp'],
             dest: 'dist'
         },
         style: {
