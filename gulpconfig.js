@@ -51,6 +51,11 @@ module.exports = {
             watch: ['src/public/view/**/*.ejs'],
             dest: 'dist/public'
         },
+        php: {
+            src: ['src/**/*.php', 'src/**/*.ctp'],
+            watch: ['src/**/*.php', 'src/**/*.ctp'],
+            dest: 'dist'
+        },
         style: {
             src: ['src/public/sass/*.scss', '!src/public/sass/_*.scss'],
             watch: ['src/public/sass/*.scss'],
