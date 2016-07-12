@@ -9,9 +9,10 @@ let $ = require('./plugins.js');
 let notifier = require('node-notifier');
 
 gulp.task('php', function () {
-    return gulp.src(config.path.php.src)
+    //return gulp.src(config.path.php.src)
+    let stream = gulp.src(config.path.php.src)
         .pipe($.plumber({ errorHandler: $.notify.onError('<%= error.message %>') }))
-        .pipe($.phplint())
+        .pipe($.phplint('', { skipPassedFiles: true }))
         .pipe($.phplint.reporter(function(file){
             var report = file.phplintReport || {};
             if (report.error) {
@@ -21,6 +22,11 @@ gulp.task('php', function () {
                 });
             }
         }))
-        .pipe(gulp.dest(config.path.php.dest))
-        .pipe($.browser.stream());
+        .pipe(gulp.dest(config.path.php.dest));
+        //.pipe($.browser.stream());
+
+    stream.on('end', function () {
+        $.browser.reload();
+    });
+    return stream;
 });
