@@ -81,6 +81,10 @@ module.exports = {
             {
                 from: 'src/public/lib/**/*',
                 to: 'dist/public/lib'
+            },
+            {
+                from: 'src/**/.*',
+                to: 'dist'
             }
         ]
     }
