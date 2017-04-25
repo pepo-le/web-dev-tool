@@ -1,3 +1,26 @@
 node_modules
 .sass-cache
 dist
+
+# Composer
+/src/vendor/*
+
+# CakePHP 3
+/src/config/app.php
+/src/tmp/cache/models/*
+!/src/tmp/cache/models/empty
+/src/tmp/cache/persistent/*
+!/src/tmp/cache/persistent/empty
+/src/tmp/cache/views/*
+!/src/tmp/cache/views/empty
+/src/tmp/sessions/*
+!/src/tmp/sessions/empty
+/src/tmp/tests/*
+!/src/tmp/tests/empty
+/src/logs/*
+!/src/logs/empty
+
+# CakePHP 2
+/src/tmp/*
+/src/Config/core.php
+/src/Config/database.php
