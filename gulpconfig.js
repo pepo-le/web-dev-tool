@@ -61,7 +61,7 @@ module.exports = {
             dest: 'dist/public/css'
         },
         script: {
-            src: 'src/public/js/*.js',
+            src: 'src/public/js/**/*.js',
             dest: 'dist/public/js'
         },
         imagemin: {
