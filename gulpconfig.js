@@ -25,8 +25,8 @@ module.exports = {
     },
     styleguide: {
         out: 'dist/styleguide/',
-        css: '../public/css/style.css',
-        script: '../public/js/script.js',
+        css: '../webroot/css/style.css',
+        script: '../webroot/js/script.js',
         clean: true
     },
     browser: {
@@ -44,47 +44,52 @@ module.exports = {
         srcRoot: 'src',
         html: {
             // 出力先のHTMLをチェックする
-            src: 'dist/public/**/*.html'
+            src: 'dist/webroot/**/*.html'
         },
         ejs: {
-            src: ['src/public/view/**/*.ejs', '!src/public/view/**/_*.ejs'],
-            watch: ['src/public/view/**/*.ejs'],
-            dest: 'dist/public'
+            src: ['src/webroot/view/**/*.ejs', '!src/webroot/view/**/_*.ejs'],
+            watch: ['src/webroot/view/**/*.ejs'],
+            dest: 'dist/webroot'
         },
         php: {
-            src: ['src/**/*.php', 'src/**/*.ctp'],
+            src: ['src/**/*.php', 'src/**/*.ctp', '!src/vendor/**/*.php', '!src/Plugin/**/*.php', '!src/vendor/**/*.ctp', '!src/Plugin/**/*.ctp'],
             dest: 'dist'
         },
         style: {
-            src: ['src/public/sass/*.scss', '!src/public/sass/_*.scss'],
-            watch: ['src/public/sass/*.scss'],
-            dest: 'dist/public/css'
+            src: ['src/webroot/sass/*.scss', '!src/webroot/sass/_*.scss'],
+            watch: ['src/webroot/sass/*.scss'],
+            dest: 'dist/webroot/css'
         },
         script: {
-            src: 'src/public/js/**/*.js',
-            dest: 'dist/public/js'
+            src: 'src/webroot/js/**/*.js',
+            dest: 'dist/webroot/js'
         },
         imagemin: {
-            src: 'src/public/img/imagemin/*',
-            dest: 'src/public/img'
+            src: 'src/webroot/img/imagemin/*',
+            dest: 'src/webroot/img'
         },
         sprite: {
-            src: 'src/public/img/sprite/*.png',
-            imgDest: 'src/public/img',
-            scssDest: 'src/public/sass/sprite'
+            src: 'src/webroot/img/sprite/*.png',
+            imgDest: 'src/webroot/img',
+            scssDest: 'src/webroot/sass/sprite'
         },
         copy: [
+            // CakePHP用
+            //{
+            //    from: ['src/**/*', 'src/**/.*', '!src/Controller/**/*.php', '!src/Model/**/*.php', '!src/View/**/*.php', '!src/View/**/*.ctp', '!src/webroot/**/*.php', '!src/Test/**/*.php', '!src/Test/**/*.ctp', '!src/webroot/**/*.ejs', '!src/webroot/sass/**/*', '!src/webroot/js/**/*', '!src/webroot/img/sprite/*', '!src/webroot/img/imagemin/*'],
+            //    to: 'dist'
+            //},
             {
-                from: ['src/public/img/**/*', '!src/public/img/sprite/*', '!src/public/img/imagemin/*'],
-                to: 'dist/public/img'
-            },
-            {
-                from: 'src/public/lib/**/*',
-                to: 'dist/public/lib'
-            },
-            {
-                from: 'src/**/.*',
+                from: 'src/**/.*', // dotfile
                 to: 'dist'
+            },
+            {
+                from: ['src/webroot/img/**/*', '!src/webroot/img/sprite/*', '!src/webroot/img/imagemin/*'],
+                to: 'dist/webroot/img'
+            },
+            {
+                from: 'src/webroot/lib/**/*',
+                to: 'dist/webroot/lib'
             }
         ]
     }
