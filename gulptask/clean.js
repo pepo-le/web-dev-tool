@@ -8,6 +8,6 @@ let config = require('../gulpconfig.js');
 let del = require('del');
 
 gulp.task('clean', function (callback) {
-    del.sync([config.dist + '/*']);
+    del.sync([config.dist + '/*', config.dist + '/.*']);
     callback();
 });
