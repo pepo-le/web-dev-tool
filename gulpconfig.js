@@ -52,7 +52,9 @@ module.exports = {
             dest: 'dist/webroot'
         },
         php: {
-            src: ['src/**/*.php', 'src/**/*.ctp', '!src/vendor/**/*.php', '!src/Plugin/**/*.php', '!src/vendor/**/*.ctp', '!src/Plugin/**/*.ctp'],
+            src: ['src/**/*.php', '!src/vendor/**/*.php'],
+            // CakePHP用
+            // src: ['src/**/*.php', 'src/**/*.ctp', '!src/vendor/**/*.php', '!src/vendor/**/*.ctp', '!src/Plugin/**/*.php', '!src/Plugin/**/*.ctp'],
             dest: 'dist'
         },
         style: {
@@ -74,23 +76,34 @@ module.exports = {
             scssDest: 'src/webroot/sass/sprite'
         },
         copy: [
-            // CakePHP用
-            //{
-            //    from: ['src/**/*', 'src/**/.*', '!src/Controller/**/*.php', '!src/Model/**/*.php', '!src/View/**/*.php', '!src/View/**/*.ctp', '!src/webroot/**/*.php', '!src/Test/**/*.php', '!src/Test/**/*.ctp', '!src/webroot/**/*.ejs', '!src/webroot/sass/**/*', '!src/webroot/js/**/*', '!src/webroot/img/sprite/*', '!src/webroot/img/imagemin/*'],
-            //    to: 'dist'
-            //},
+            // All Copy
             {
-                from: 'src/**/.*', // dotfile
+                from: ['src/**/*', 'src/**/.*', '!src/vendor/**/*', '!src/vendor/**/.*', '!src/webroot/**/*.ejs', '!src/**/*.php', '!src/webroot/sass/**/*', '!src/webroot/js/**/*', '!src/webroot/img/sprite/*', '!src/webroot/img/imagemin/*'],
+                watchFlag: true,
                 to: 'dist'
             },
+            // Composer
             {
-                from: ['src/webroot/img/**/*', '!src/webroot/img/sprite/*', '!src/webroot/img/imagemin/*'],
-                to: 'dist/webroot/img'
+                from: ['src/vendor/**/*', 'src/vendor/**/.*'],
+                watchFlag: false,
+                to: 'dist/vendor'
             },
-            {
-                from: 'src/webroot/lib/**/*',
-                to: 'dist/webroot/lib'
-            }
+            // CakePHP用
+            // {
+            //     from: ['src/**/*', 'src/**/.*', '!src/vendor/**/*', '!src/vendor/**/.*', '!src/Plugin/**/*', '!src/Plugin/**/.*', '!src/**/*.php', '!src/**/*.ctp', '!src/webroot/**/*.ejs', '!src/webroot/sass/**/*', '!src/webroot/js/**/*', '!src/webroot/img/sprite/*', '!src/webroot/img/imagemin/*'],
+            //     watchFlag: true,
+            //     to: 'dist'
+            // },
+            // {
+            //     from: ['src/vendor/**/*', 'src/vendor/**/.*'],
+            //     watchFlag: false,
+            //     to: 'dist/vendor'
+            // },
+            // {
+            //     from: ['src/Plugin/**/*', 'src/Plugin/**/.*'],
+            //     watchFlag: false,
+            //     to: 'dist/Plugin'
+            // },
         ]
     }
 }

@@ -18,9 +18,12 @@ gulp.task('watch', function () {
     // 複製タスクはループで回して監視対象とする
     var copyfiles = config.path.copy || [];
     copyfiles.forEach(function (filepath) {
-        gulp.watch(filepath.from, ['copy']);
+        if (filepath.watchFlag) {
+            gulp.watch(filepath.from, ['copy']);
+        }
     });
-    //gulp.watch(config.dist + '/**/*', ['reload']);
+    // テスト用（通常は使わない）
+    // gulp.watch(config.dist + '/**/*', ['reload']);
 });
 
 gulp.task('build', ['clean'], function (callback) {
