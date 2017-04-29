@@ -10,7 +10,7 @@ let merge = require('merge');
 gulp.task('server', function () {
     let options = merge(config.browser, {
         server: {
-            baseDir: config.dist + '/public',
+            baseDir: config.dist + '/webroot',
             directory: false
         },
         ui: {
