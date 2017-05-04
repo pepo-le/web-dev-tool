@@ -54,7 +54,7 @@ module.exports = {
         php: {
             src: ['src/**/*.php', '!src/vendor/**/*.php'],
             // CakePHP用
-            // src: ['src/**/*.php', 'src/**/*.ctp', '!src/vendor/**/*.php', '!src/vendor/**/*.ctp', '!src/Plugin/**/*.php', '!src/Plugin/**/*.ctp'],
+            // src: ['src/**/*.php', 'src/**/*.ctp', '!src/Vendor/**/*.php', '!src/Vendor/**/*.ctp', '!src/Plugin/**/*.php', '!src/Plugin/**/*.ctp'],
             dest: 'dist'
         },
         style: {
@@ -90,14 +90,14 @@ module.exports = {
             },
             // CakePHP用
             // {
-            //     from: ['src/**/*', 'src/**/.*', '!src/vendor/**/*', '!src/vendor/**/.*', '!src/Plugin/**/*', '!src/Plugin/**/.*', '!src/**/*.php', '!src/**/*.ctp', '!src/webroot/**/*.ejs', '!src/webroot/sass/**/*', '!src/webroot/js/**/*', '!src/webroot/img/sprite/*', '!src/webroot/img/imagemin/*'],
+            //     from: ['src/**/*', 'src/**/.*', '!src/Vendor/**/*', '!src/Vendor/**/.*', '!src/Plugin/**/*', '!src/Plugin/**/.*', '!src/**/*.php', '!src/**/*.ctp', '!src/webroot/**/*.ejs', '!src/webroot/sass/**/*', '!src/webroot/js/**/*', '!src/webroot/img/sprite/*', '!src/webroot/img/imagemin/*'],
             //     watchFlag: true,
             //     to: 'dist'
             // },
             // {
-            //     from: ['src/vendor/**/*', 'src/vendor/**/.*'],
+            //     from: ['src/Vendor/**/*', 'src/Vendor/**/.*'],
             //     watchFlag: false,
-            //     to: 'dist/vendor'
+            //     to: 'dist/Vendor'
             // },
             // {
             //     from: ['src/Plugin/**/*', 'src/Plugin/**/.*'],
