@@ -5,6 +5,7 @@ dist
 
 # Composer
 /src/vendor/*
+/src/Vendor/*
 
 # CakePHP 3
 /src/config/app.php
