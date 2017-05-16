@@ -1,0 +1,18 @@
+root = true
+
+[*]
+end_of_line = lf
+charset = UTF-8
+indent_style = space
+indent_size = 4
+trim_trailing_whitespace = true
+insert_final_newline = true
+
+[*.html]
+insert_final_newline = false
+
+# PSR-2に準拠します
+[*.php]
+
+[*.md]
+trim_trailing_whitespace = false
