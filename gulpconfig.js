@@ -63,7 +63,7 @@ module.exports = {
             dest: 'dist/webroot/css'
         },
         script: {
-            src: 'src/webroot/js/**/*.js',
+            src: ['src/webroot/js/**/*.js', '!src/webroot/js/vendor/**/*'],
             dest: 'dist/webroot/js'
         },
         imagemin: {
