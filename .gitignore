@@ -8,25 +8,25 @@ node_modules
 .vimsessions
 
 # Composer
-/src/vendor/*
-/src/Vendor/*
+/app/vendor/*
+/app/Vendor/*
 
 # CakePHP 3
-/src/config/app.php
-/src/tmp/cache/models/*
-!/src/tmp/cache/models/empty
-/src/tmp/cache/persistent/*
-!/src/tmp/cache/persistent/empty
-/src/tmp/cache/views/*
-!/src/tmp/cache/views/empty
-/src/tmp/sessions/*
-!/src/tmp/sessions/empty
-/src/tmp/tests/*
-!/src/tmp/tests/empty
-/src/logs/*
-!/src/logs/empty
+/app/config/app.php
+/app/tmp/cache/models/*
+!/app/tmp/cache/models/empty
+/app/tmp/cache/persistent/*
+!/app/tmp/cache/persistent/empty
+/app/tmp/cache/views/*
+!/app/tmp/cache/views/empty
+/app/tmp/sessions/*
+!/app/tmp/sessions/empty
+/app/tmp/tests/*
+!/app/tmp/tests/empty
+/app/logs/*
+!/app/logs/empty
 
 # CakePHP 2
-/src/tmp/*
-/src/Config/core.php
-/src/Config/database.php
+/app/tmp/*
+/app/Config/core.php
+/app/Config/database.php
