@@ -2,9 +2,9 @@
 /**
  * HTMLをlintの後に出力
  */
-let gulp = require('gulp');
-let $ = require('./plugins.js');
-let config = require('../gulpconfig.js');
+const gulp = require('gulp');
+const config = require('../gulpconfig.js');
+const $ = require('./plugins.js');
 
 gulp.task('html', function () {
     return gulp.src(config.path.html.src)

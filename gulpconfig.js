@@ -1,5 +1,9 @@
+const app = 'app';
+const webroot = app + '/public';
+const src = 'src';
+
 module.exports = {
-    dist: 'dist',
+    dist: webroot,
     htmlhint: '.htmlhintrc',
     ejs: {
         ext: '.html'
@@ -24,9 +28,9 @@ module.exports = {
         }
     },
     styleguide: {
-        out: 'dist/styleguide/',
-        css: '../webroot/css/style.css',
-        script: '../webroot/js/script.js',
+        out: webroot + '/styleguide/',
+        css: '../public/css/style.css',
+        script: '../public/js/script.js',
         clean: true
     },
     browser: {
@@ -44,66 +48,53 @@ module.exports = {
         srcRoot: 'src',
         html: {
             // 出力先のHTMLをチェックする
-            src: 'dist/webroot/**/*.html'
+            src: webroot + '/**/*.html'
         },
         ejs: {
-            src: ['src/webroot/view/**/*.ejs', '!src/webroot/view/**/_*.ejs'],
-            watch: ['src/webroot/view/**/*.ejs'],
-            dest: 'dist/webroot'
-        },
-        php: {
-            src: ['src/**/*.php', '!src/vendor/**/*.php'],
-            // CakePHP用
-            // src: ['src/**/*.php', 'src/**/*.ctp', '!src/Vendor/**/*.php', '!src/Vendor/**/*.ctp', '!src/Plugin/**/*.php', '!src/Plugin/**/*.ctp'],
-            dest: 'dist'
+            src: [src + '/view/**/*.ejs', '!' + src + '/view/**/_*.ejs'],
+            watch: [src + '/view/**/*.ejs'],
+            dest: webroot
         },
         style: {
-            src: ['src/webroot/sass/*.scss', '!src/webroot/sass/_*.scss'],
-            watch: ['src/webroot/sass/*.scss'],
-            dest: 'dist/webroot/css'
+            src: [src + '/sass/*.scss', '!' + src + '/sass/_*.scss'],
+            watch: [src + '/sass/*.scss'],
+            dest: webroot + '/css'
         },
         script: {
-            src: ['src/webroot/js/**/*.js', '!src/webroot/js/vendor/**/*'],
-            dest: 'dist/webroot/js'
+            src: [src + '/js/**/*.js', '!' + src + '/js/vendor/**/*'],
+            dest: webroot + '/js'
         },
         imagemin: {
-            src: 'src/webroot/img/imagemin/*',
-            dest: 'src/webroot/img'
+            src: src + '/img/imagemin/*',
+            dest: src + '/img'
         },
         sprite: {
-            src: 'src/webroot/img/sprite/*.png',
-            imgDest: 'src/webroot/img',
-            scssDest: 'src/webroot/sass/sprite'
+            src: src + '/img/sprite/*',
+            imgDest: src + '/img',
+            scssDest: src + '/sass/sprite'
+        },
+        php: {
+            src: [app + '/**/*.php', '!' + app + '/vendor/**/*.php'],
         },
         copy: [
-            // All Copy
             {
-                from: ['src/**/*', 'src/**/.*', '!src/vendor/**/*', '!src/vendor/**/.*', '!src/webroot/**/*.ejs', '!src/**/*.php', '!src/webroot/sass/**/*', '!src/webroot/js/**/*', '!src/webroot/img/sprite/*', '!src/webroot/img/imagemin/*'],
+                // image
+                from: [
+                    src + '/img/**/*',
+                    '!' + src + '/img/imagemin/**/*',
+                    '!' + src + '/img/sprite/**/*'
+                ],
                 watchFlag: true,
-                to: 'dist'
+                to: webroot + '/img'
             },
-            // Composer
             {
-                from: ['src/vendor/**/*', 'src/vendor/**/.*'],
-                watchFlag: false,
-                to: 'dist/vendor'
-            },
-            // CakePHP用
-            // {
-            //     from: ['src/**/*', 'src/**/.*', '!src/Vendor/**/*', '!src/Vendor/**/.*', '!src/Plugin/**/*', '!src/Plugin/**/.*', '!src/**/*.php', '!src/**/*.ctp', '!src/webroot/**/*.ejs', '!src/webroot/sass/**/*', '!src/webroot/js/**/*', '!src/webroot/img/sprite/*', '!src/webroot/img/imagemin/*'],
-            //     watchFlag: true,
-            //     to: 'dist'
-            // },
-            // {
-            //     from: ['src/Vendor/**/*', 'src/Vendor/**/.*'],
-            //     watchFlag: false,
-            //     to: 'dist/Vendor'
-            // },
-            // {
-            //     from: ['src/Plugin/**/*', 'src/Plugin/**/.*'],
-            //     watchFlag: false,
-            //     to: 'dist/Plugin'
-            // },
+                // library
+                from: [
+                    src + '/lib/**/*',
+                ],
+                watchFlag: true,
+                to: webroot + '/lib'
+            }
         ]
     }
 }

@@ -2,9 +2,9 @@
 /**
  * 画像の圧縮
  */
-let gulp = require('gulp');
-let config = require('../gulpconfig.js');
-let $ = require('./plugins.js');
+const gulp = require('gulp');
+const config = require('../gulpconfig.js');
+const $ = require('./plugins.js');
 
 gulp.task('imagemin', function () {
     return gulp.src(config.path.imagemin.src)

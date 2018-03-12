@@ -2,10 +2,10 @@
 /**
  * gulpから始まるモジュールを$.<module>で読み込めるようにする
  */
-let loader = require('gulp-load-plugins');
-let browser = require('browser-sync');
+const loader = require('gulp-load-plugins');
+const browser = require('browser-sync');
 
-let $ = loader({
+const $ = loader({
     pattern: ['gulp-*', 'gulp.*'],
     replaceString: /\bgulp[\-.]/
 });

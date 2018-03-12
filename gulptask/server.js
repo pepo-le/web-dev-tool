@@ -2,10 +2,11 @@
 /**
  * browser-syncで自動リロード
  */
-let gulp = require('gulp');
-let config = require('../gulpconfig.js');
-let $ = require('./plugins.js');
-let merge = require('merge');
+const gulp = require('gulp');
+const config = require('../gulpconfig.js');
+const $ = require('./plugins.js');
+
+const merge = require('merge');
 
 gulp.task('server', function () {
     let options = merge(config.browser, {

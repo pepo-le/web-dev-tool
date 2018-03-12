@@ -1,9 +1,9 @@
 "use strict";
 
-let gulp = require('gulp');
-let runSequence = require('run-sequence');
-let requireDir = require('require-dir');
-let config = require('./gulpconfig.js');
+const gulp = require('gulp');
+const runSequence = require('run-sequence');
+const requireDir = require('require-dir');
+const config = require('./gulpconfig.js');
 
 requireDir('./gulptask', { recurse: true });
 
@@ -13,8 +13,8 @@ gulp.task('watch', function () {
     gulp.watch(config.path.php.src, ['php']);
     gulp.watch(config.path.style.watch, ['style']);
     // JavaScript処理の選択
-    gulp.watch(config.path.script.src, ['script']);
-    //gulp.watch(config.path.script.src, ['webpack']);
+    gulp.watch(config.path.script.src, ['webpack']);
+    // gulp.watch(config.path.script.src, ['script']);
     // 複製タスクはループで回して監視対象とする
     var copyfiles = config.path.copy || [];
     copyfiles.forEach(function (filepath) {
@@ -27,8 +27,8 @@ gulp.task('watch', function () {
 });
 
 gulp.task('build', ['clean'], function (callback) {
-    return runSequence(['html', 'ejs', 'php', 'style', 'script', 'copy'], callback);
-    //return runSequence(['html', 'ejs', 'php', 'style', 'webpack', 'copy'], callback);
+    return runSequence(['html', 'ejs', 'php', 'sty', 'webpack', 'copy'], callback);
+    // return runSequence(['html', 'ejs', 'php', 'style', 'script', 'copy'], callback);
 });
 
 gulp.task('default', function () {

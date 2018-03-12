@@ -3,20 +3,22 @@
  * 複製タスク
  * config.jsで指定されたファイルを指定されたディレクトリにコピーする
  */
-let gulp = require('gulp');
-let config = require('../gulpconfig.js');
-let $ = require('./plugins.js');
+const gulp = require('gulp');
+const config = require('../gulpconfig.js');
+const $ = require('./plugins.js');
 
-let ms = require('merge-stream');
+const ms = require('merge-stream');
 
 gulp.task('copy', function () {
-    let files = config.path.copy || [];
-    let stream = ms();
+    const files = config.path.copy || [];
+    const stream = ms();
+
     files.forEach(function (file) {
         let st = gulp.src(file.from)
             .pipe(gulp.dest(file.to));
         stream.add(st);
     });
+
     stream.on('end', function () {
         $.browser.reload();
     });
