@@ -27,8 +27,8 @@ gulp.task('watch', function () {
 });
 
 gulp.task('build', ['clean'], function (callback) {
-    return runSequence(['html', 'ejs', 'php', 'sty', 'webpack', 'copy'], callback);
-    // return runSequence(['html', 'ejs', 'php', 'style', 'script', 'copy'], callback);
+    return runSequence(['html', 'ejs', 'php', 'style', 'webpack'], 'copy', callback);
+    // return runSequence(['html', 'ejs', 'php', 'style', 'script'], 'copy', callback);
 });
 
 gulp.task('default', function () {

@@ -3,9 +3,9 @@ node_modules
 .sass-cache
 /logs
 
-/dist
-
 .vimsessions
+
+/app_dist
 
 # Composer
 /app/vendor/*

@@ -1,9 +1,12 @@
+// アプリケーション全体のディレクトリ
 const app = 'app';
-const webroot = app + '/public';
-const src = 'src';
+const app_webroot = app + '/public'
+// Webrootにコピーして使うファイル群のディレクトリ
+const src = 'app_src';
+const dist = 'app_dist';
 
 module.exports = {
-    dist: webroot,
+    dist: dist,
     htmlhint: '.htmlhintrc',
     ejs: {
         ext: '.html'
@@ -28,7 +31,7 @@ module.exports = {
         }
     },
     styleguide: {
-        out: webroot + '/styleguide/',
+        out: dist + '/styleguide/',
         css: '../public/css/style.css',
         script: '../public/js/script.js',
         clean: true
@@ -48,21 +51,21 @@ module.exports = {
         srcRoot: 'src',
         html: {
             // 出力先のHTMLをチェックする
-            src: webroot + '/**/*.html'
+            src: dist + '/**/*.html'
         },
         ejs: {
             src: [src + '/view/**/*.ejs', '!' + src + '/view/**/_*.ejs'],
             watch: [src + '/view/**/*.ejs'],
-            dest: webroot
+            dest: dist
         },
         style: {
             src: [src + '/sass/*.scss', '!' + src + '/sass/_*.scss'],
             watch: [src + '/sass/*.scss'],
-            dest: webroot + '/css'
+            dest: dist + '/css'
         },
         script: {
             src: [src + '/js/**/*.js', '!' + src + '/js/vendor/**/*'],
-            dest: webroot + '/js'
+            dest: dist + '/js'
         },
         imagemin: {
             src: src + '/img/imagemin/*',
@@ -85,7 +88,7 @@ module.exports = {
                     '!' + src + '/img/sprite/**/*'
                 ],
                 watchFlag: true,
-                to: webroot + '/img'
+                to: dist + '/img'
             },
             {
                 // library
@@ -93,7 +96,15 @@ module.exports = {
                     src + '/lib/**/*',
                 ],
                 watchFlag: true,
-                to: webroot + '/lib'
+                to: dist + '/lib'
+            },
+            {
+                // webrootにコピー
+                from: [
+                    dist + '/**/*'
+                ],
+                watchFlag: true,
+                to: app_webroot
             }
         ]
     }
