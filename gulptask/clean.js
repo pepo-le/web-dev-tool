@@ -2,12 +2,12 @@
 /**
  * distディレクトリ以下を削除する
  */
-const gulp = require('gulp');
-const config = require('../gulpconfig.js');
+import gulp from 'gulp';
+import config from '../gulpconfig.js';
+import $ from './plugins.js';
 
-const del = require('del');
-
-gulp.task('clean', function (callback) {
-    del.sync([config.dist + '/*', config.dist + '/.*']);
-    callback();
-});
+export default function clean() {
+    return gulp.src([config.dist + '/*', config.dist + '/.*'], { read: false })
+        .pipe($.ignore('node_modules/**'))
+        .pipe($.rimraf());
+};

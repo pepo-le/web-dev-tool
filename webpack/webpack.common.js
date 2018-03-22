@@ -3,10 +3,10 @@ const webpack = require('webpack');
 const path = require('path');
 
 module.exports = {
-    context: path.resolve(__dirname, '../app_src/js'),
+    context: path.resolve(__dirname, '../app_src/public/js'),
     entry: './main.js',
     output: {
-        path: path.resolve(__dirname, '../app_dist/js'),
+        path: path.resolve(__dirname, '../app_dist/public/js'),
         filename: './[name].js',
     },
     // mode: 'production',

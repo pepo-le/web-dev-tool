@@ -4,18 +4,18 @@
  * scssをコンパイルしてautoprefixerでプレフィックスをつける
  * ソースマップを出力する
  */
-const gulp = require('gulp');
-const config = require('../gulpconfig.js');
-const $ = require('./plugins');
+import gulp from 'gulp';
+import config from '../gulpconfig.js';
+import $ from './plugins.js';
 
-const merge = require('merge');
-const autoprefixer = require('autoprefixer');
-const cssMqpacker = require('css-mqpacker');
+import merge from 'merge';
+import autoprefixer from 'autoprefixer';
+import cssMqpacker from 'css-mqpacker';
 
-const minimist = require('minimist');
+import minimist from 'minimist';
 const env = minimist(process.argv.slice(2));
 
-gulp.task('style', function () {
+export default function style() {
     config.style = config.style || {};
     const guideOptions = merge({ out: config.dist + '/styleguide/' }, config.styleguide);
     const sourcemaps = config.style.sourcemaps || 'maps';
@@ -35,4 +35,4 @@ gulp.task('style', function () {
         .pipe($.if(env.production, $.sourcemaps.write(sourcemaps)))
         .pipe(gulp.dest(config.path.style.dest))
         .pipe($.browser.stream({ match: '**/*.css' }));
-});
+};

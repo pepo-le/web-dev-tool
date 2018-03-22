@@ -2,16 +2,16 @@
 /**
  * browser-syncで自動リロード
  */
-const gulp = require('gulp');
-const config = require('../gulpconfig.js');
-const $ = require('./plugins.js');
+import gulp from 'gulp';
+import config from '../gulpconfig.js';
+import $ from './plugins.js';
 
-const merge = require('merge');
+import merge from 'merge';
 
-gulp.task('server', function () {
+export default function server() {
     let options = merge(config.browser, {
         server: {
-            baseDir: config.dist + '/webroot',
+            baseDir: config.webroot,
             directory: false
         },
         ui: {
@@ -24,9 +24,5 @@ gulp.task('server', function () {
     } else {
         delete options.proxy;
     }
-    return $.browser(options);
-});
-
-gulp.task('reload', function () {
-    return $.browser.reload();
-});
+    return $.browser.init(options);
+};

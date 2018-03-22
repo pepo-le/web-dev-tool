@@ -1,12 +1,12 @@
-// アプリケーション全体のディレクトリ
-const app = 'app';
-const app_webroot = app + '/public'
-// Webrootにコピーして使うファイル群のディレクトリ
 const src = 'app_src';
 const dist = 'app_dist';
+// webroot
+const src_webroot = src + '/public';
+const dist_webroot = dist + '/public';
 
-module.exports = {
+export default {
     dist: dist,
+    webroot: dist_webroot,
     htmlhint: '.htmlhintrc',
     ejs: {
         ext: '.html'
@@ -48,63 +48,57 @@ module.exports = {
         }
     },
     path: {
-        srcRoot: 'src',
         html: {
             // 出力先のHTMLをチェックする
-            src: dist + '/**/*.html'
+            src: dist_webroot + '/**/*.html'
         },
         ejs: {
-            src: [src + '/view/**/*.ejs', '!' + src + '/view/**/_*.ejs'],
-            watch: [src + '/view/**/*.ejs'],
-            dest: dist
+            src: [src_webroot + '/view/**/*.ejs', '!' + src + '/view/**/_*.ejs'],
+            watch: [src_webroot + '/view/**/*.ejs'],
+            dest: dist_webroot
         },
         style: {
-            src: [src + '/sass/*.scss', '!' + src + '/sass/_*.scss'],
-            watch: [src + '/sass/*.scss'],
-            dest: dist + '/css'
+            src: [src_webroot + '/sass/*.scss', '!' + src + '/sass/_*.scss'],
+            watch: [src_webroot + '/sass/*.scss'],
+            dest: dist_webroot + '/css'
         },
         script: {
-            src: [src + '/js/**/*.js', '!' + src + '/js/vendor/**/*'],
-            dest: dist + '/js'
+            src: [src_webroot + '/js/**/*.js', '!' + src + '/js/vendor/**/*'],
+            dest: dist_webroot + '/js'
         },
         imagemin: {
-            src: src + '/img/imagemin/*',
-            dest: src + '/img'
+            src: src_webroot + '/img/imagemin/*',
+            dest: src_webroot + '/img'
         },
         sprite: {
-            src: src + '/img/sprite/*',
-            imgDest: src + '/img',
-            scssDest: src + '/sass/sprite'
+            src: src_webroot + '/img/sprite/*',
+            imgDest: src_webroot + '/img',
+            scssDest: src_webroot + '/sass/sprite'
         },
         php: {
-            src: [app + '/**/*.php', '!' + app + '/vendor/**/*.php'],
+            src: [src + '/**/*.php', '!' + src + '/vendor/**/*.php'],
+            dest: dist + '/'
         },
         copy: [
             {
-                // image
+                // all
                 from: [
-                    src + '/img/**/*',
-                    '!' + src + '/img/imagemin/**/*',
-                    '!' + src + '/img/sprite/**/*'
+                    src + '/**/*',
+                    '!' + src_webroot + '/view/**/*',
+                    '!' + src_webroot + '/img/imagemin/**/*',
+                    '!' + src_webroot + '/img/sprite/**/*',
+                    '!' + src + '/vendor/**/*'    // composer
                 ],
                 watchFlag: true,
-                to: dist + '/img'
+                to: dist
             },
             {
-                // library
+                // composer
                 from: [
-                    src + '/lib/**/*',
+                    src + '/vendor/**/*'
                 ],
-                watchFlag: true,
-                to: dist + '/lib'
-            },
-            {
-                // webrootにコピー
-                from: [
-                    dist + '/**/*'
-                ],
-                watchFlag: true,
-                to: app_webroot
+                watchFlag: false,
+                to: dist + '/vendor'
             }
         ]
     }

@@ -2,14 +2,14 @@
 /**
  * PHPをバリデートして出力
  */
-const gulp = require('gulp');
-const config = require('../gulpconfig.js');
-const $ = require('./plugins.js');
+import gulp from 'gulp';
+import config from '../gulpconfig.js';
+import $ from './plugins.js';
 
-const notifier = require('node-notifier');
+import notifier from 'node-notifier';
 
-gulp.task('php', function () {
-    const stream = gulp.src(config.path.php.src)
+export default function php() {
+    return gulp.src(config.path.php.src)
         .pipe($.plumber({ errorHandler: $.notify.onError('<%= error.message %>') }))
         .pipe($.phplint('', { skipPassedFiles: true }))
         .pipe($.phplint.reporter(function(file){
@@ -20,10 +20,7 @@ gulp.task('php', function () {
                     title: 'PHP Lint',
                 });
             }
-        }));
-
-    stream.on('end', function () {
-        $.browser.reload();
-    });
-    return stream;
-});
+        }))
+        .pipe(gulp.dest(config.path.php.dest))
+        .pipe($.browser.stream());
+};
