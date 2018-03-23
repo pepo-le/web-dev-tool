@@ -1,4 +1,3 @@
-'use strict';
 /**
  * HTMLをlintの後に出力
  */

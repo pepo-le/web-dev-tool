@@ -1,4 +1,3 @@
-'use strict';
 /**
  * JavaScriptの出力
  * ファイルはマージしない

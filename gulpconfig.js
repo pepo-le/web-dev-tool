@@ -48,6 +48,9 @@ export default {
         }
     },
     path: {
+        clean: {
+            exclude: ['node_modules', 'vendor']
+        },
         html: {
             // 出力先のHTMLをチェックする
             src: dist_webroot + '/**/*.html'

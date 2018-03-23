@@ -1,4 +1,3 @@
-'use strict';
 /**
  * webpackで出力
  */

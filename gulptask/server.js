@@ -1,4 +1,3 @@
-'use strict';
 /**
  * browser-syncで自動リロード
  */

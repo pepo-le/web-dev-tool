@@ -1,4 +1,3 @@
-'use strict';
 /**
  * SASSを使用
  * scssをコンパイルしてautoprefixerでプレフィックスをつける

@@ -1,4 +1,3 @@
-"use strict";
 import gulp from 'gulp';
 import watch from 'gulp-watch';
 import config from './gulpconfig.js';
