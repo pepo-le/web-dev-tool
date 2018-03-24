@@ -56,17 +56,17 @@ export default {
             src: dist_webroot + '/**/*.html'
         },
         ejs: {
-            src: [src_webroot + '/view/**/*.ejs', '!' + src + '/view/**/_*.ejs'],
+            src: [src_webroot + '/view/**/*.ejs', '!' + src_webroot + '/view/**/_*.ejs'],
             watch: [src_webroot + '/view/**/*.ejs'],
             dest: dist_webroot
         },
         style: {
-            src: [src_webroot + '/sass/*.scss', '!' + src + '/sass/_*.scss'],
+            src: [src_webroot + '/sass/*.scss', '!' + src_webroot + '/sass/_*.scss'],
             watch: [src_webroot + '/sass/*.scss'],
             dest: dist_webroot + '/css'
         },
         script: {
-            src: [src_webroot + '/js/**/*.js', '!' + src + '/js/vendor/**/*'],
+            src: [src_webroot + '/js/**/*.js', '!' + src_webroot + '/js/vendor/**/*'],
             dest: dist_webroot + '/js'
         },
         imagemin: {
