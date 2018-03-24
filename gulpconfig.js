@@ -79,7 +79,7 @@ export default {
             scssDest: src_webroot + '/sass/sprite'
         },
         php: {
-            src: [src + '/**/*.php', '!' + src + '/vendor/**/*.php'],
+            src: [src + '/**/*.php', '!' + src + '/vendor/**/*'],
             dest: dist + '/'
         },
         copy: [
