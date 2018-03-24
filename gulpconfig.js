@@ -84,24 +84,36 @@ export default {
         },
         copy: [
             {
-                // all
+                // All
                 from: [
                     src + '/**/*',
                     '!' + src_webroot + '/view/**/*',
                     '!' + src_webroot + '/img/imagemin/**/*',
                     '!' + src_webroot + '/img/sprite/**/*',
+                    '!' + src_webroot + '/node_modules/**/*',   // node
                     '!' + src + '/vendor/**/*'    // composer
                 ],
                 watchFlag: true,
-                to: dist
+                to: dist,
+                devIgnore: false
             },
             {
-                // composer
+                // Composer
                 from: [
                     src + '/vendor/**/*'
                 ],
                 watchFlag: false,
-                to: dist + '/vendor'
+                to: dist + '/vendor',
+                devIgnore: true
+            },
+            {
+                // Node
+                from: [
+                    src + '/node_modules/**/*'
+                ],
+                watchFlag: false,
+                to: dist + '/node_modules',
+                devIgnore: true
             }
         ]
     }
