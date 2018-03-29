@@ -87,6 +87,7 @@ export default {
                 // All
                 from: [
                     src + '/**/*',
+                    src + '/**/.*',
                     '!' + src_webroot + '/view/**/*',
                     '!' + src_webroot + '/img/imagemin/**/*',
                     '!' + src_webroot + '/img/sprite/**/*',
