@@ -8,7 +8,7 @@ import $ from './plugins.js';
 import notifier from 'node-notifier';
 
 export default function php() {
-    return gulp.src(config.path.php.src)
+    let stream = gulp.src(config.path.php.src)
         .pipe($.plumber({ errorHandler: $.notify.onError('<%= error.message %>') }))
         .pipe($.phplint('', { skipPassedFiles: true }))
         .pipe($.phplint.reporter(function(file){
@@ -21,5 +21,9 @@ export default function php() {
             }
         }))
         .pipe(gulp.dest(config.path.php.dest))
-        .pipe($.browser.stream());
+
+    stream.on('end', function () {
+        $.browser.reload();
+    });
+    return stream;
 };
