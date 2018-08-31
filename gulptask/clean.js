@@ -10,6 +10,6 @@ const env = minimist(process.argv.slice(2));
 
 export default function clean() {
     return gulp.src([config.dist + '/*', config.dist + '/.*'], { read: false })
-        .pipe($.if(!env.production, $.ignore(config.path.clean.exclude)))
+        .pipe($.if(!env.prod, $.ignore(config.path.clean.exclude)))
         .pipe($.rimraf());
 };

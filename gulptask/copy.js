@@ -15,7 +15,7 @@ export default function copy() {
     const stream = ms();
 
     files.forEach(function (file) {
-        if (!env.production && file.devIgnore) {
+        if (!env.prod && file.devIgnore) {
             return;
         }
 

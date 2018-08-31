@@ -49,6 +49,7 @@ export default {
     },
     path: {
         clean: {
+            // clean --prod の時以外は以下を残す
             exclude: ['node_modules', 'vendor']
         },
         html: {
@@ -105,7 +106,7 @@ export default {
                 ],
                 watchFlag: false,
                 to: dist + '/vendor',
-                devIgnore: true
+                devIgnore: true // copy --prod の時のみコピーする
             },
             {
                 // Node
