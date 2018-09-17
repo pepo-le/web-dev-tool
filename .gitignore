@@ -7,9 +7,6 @@ node_modules
 # Vimsessions
 .vimsessions
 
-# DestDir
-/app/public
-
 # Others
 /logs
 .sass-cache
