@@ -7,8 +7,8 @@ node_modules
 # Vimsessions
 .vimsessions
 
-# DistDir
-/app_dist
+# DestDir
+/app/public
 
 # Others
 /logs
