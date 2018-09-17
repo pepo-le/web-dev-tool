@@ -16,7 +16,7 @@ const env = minimist(process.argv.slice(2));
 
 export default function style() {
     config.style = config.style || {};
-    const guideOptions = merge({ out: config.dist + '/styleguide/' }, config.styleguide);
+    const guideOptions = merge({ out: config.webroot + '/styleguide/' }, config.styleguide);
     const sourcemaps = config.style.sourcemaps || 'maps';
 
     return gulp.src(config.path.style.src)
@@ -25,13 +25,13 @@ export default function style() {
         .pipe($.sassLint())
         .pipe($.sassLint.format())
         .pipe($.sassLint.failOnError())
-        .pipe($.if(env.production, $.sourcemaps.init()))
+        .pipe($.if(!env.production, $.sourcemaps.init()))
         .pipe($.sass(config.style.sass))
         .pipe($.postcss([
             autoprefixer(config.style.autoprefixer),
             cssMqpacker(config.style.mqpacker)
         ]))
-        .pipe($.if(env.production, $.sourcemaps.write(sourcemaps)))
+        .pipe($.if(!env.production, $.sourcemaps.write(sourcemaps)))
         .pipe(gulp.dest(config.path.style.dest))
         .pipe($.browser.stream({ match: '**/*.css' }));
-};
+}

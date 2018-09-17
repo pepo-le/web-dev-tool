@@ -11,4 +11,4 @@ export default function html() {
         .pipe($.htmlhint(config.htmlhint))
         .pipe($.htmlhint.reporter())
         .pipe($.htmlhint.failReporter());
-};
+}

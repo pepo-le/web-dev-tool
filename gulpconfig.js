@@ -1,12 +1,10 @@
-const src = 'app_src';
-const dist = 'app_dist';
-// webroot
-const src_webroot = src + '/public';
-const dist_webroot = dist + '/public';
+const app = 'app';
+const assets = app + '/assets';
+const webroot = app + '/public';
 
 export default {
-    dist: dist,
-    webroot: dist_webroot,
+    app: app,
+    webroot: webroot,
     htmlhint: '.htmlhintrc',
     ejs: {
         ext: '.html'
@@ -31,7 +29,7 @@ export default {
         }
     },
     styleguide: {
-        out: dist + '/styleguide/',
+        out: webroot + '/styleguide/',
         css: '../public/css/style.css',
         script: '../public/js/script.js',
         clean: true
@@ -48,74 +46,47 @@ export default {
         }
     },
     path: {
-        clean: {
-            // clean --prod の時以外は以下を残す
-            exclude: ['node_modules', 'vendor']
-        },
         html: {
             // 出力先のHTMLをチェックする
-            src: dist_webroot + '/**/*.html'
+            src: webroot + '/**/*.html'
         },
         ejs: {
-            src: [src_webroot + '/view/**/*.ejs', '!' + src_webroot + '/view/**/_*.ejs'],
-            watch: [src_webroot + '/view/**/*.ejs'],
-            dest: dist_webroot
+            src: [assets + '/view/**/*.ejs', '!' + assets + '/view/**/_*.ejs'],
+            watch: [assets + '/view/**/*.ejs'],
+            dest: webroot
         },
         style: {
-            src: [src_webroot + '/sass/*.scss', '!' + src_webroot + '/sass/_*.scss'],
-            watch: [src_webroot + '/sass/*.scss'],
-            dest: dist_webroot + '/css'
+            src: [assets + '/sass/*.scss', '!' + assets + '/sass/_*.scss'],
+            watch: [assets + '/sass/*.scss'],
+            dest: webroot + '/css'
         },
         script: {
-            src: [src_webroot + '/js/**/*.js', '!' + src_webroot + '/js/vendor/**/*'],
-            dest: dist_webroot + '/js'
+            src: [assets + '/js/**/*.js', '!' + assets + '/js/vendor/**/*'],
+            dest: webroot + '/js'
         },
         imagemin: {
-            src: src_webroot + '/img/imagemin/*',
-            dest: src_webroot + '/img'
+            src: assets + '/img/imagemin/*',
+            dest: assets + '/img'
         },
         sprite: {
-            src: src_webroot + '/img/sprite/*',
-            imgDest: src_webroot + '/img',
-            scssDest: src_webroot + '/sass/sprite'
+            src: assets + '/img/sprite/*',
+            imgDest: assets + '/img',
+            scssDest: assets + '/sass/sprite'
         },
         php: {
-            src: [src + '/**/*.php', '!' + src + '/vendor/**/*'],
-            dest: dist + '/'
+            src: [app + '/**/*.php', '!' + app + '/vendor/**/*'],
         },
         copy: [
             {
                 // All
                 from: [
-                    src + '/**/*',
-                    src + '/**/.*',
-                    '!' + src_webroot + '/view/**/*',
-                    '!' + src_webroot + '/img/imagemin/**/*',
-                    '!' + src_webroot + '/img/sprite/**/*',
-                    '!' + src_webroot + '/node_modules/**/*',   // node
-                    '!' + src + '/vendor/**/*'    // composer
+                    assets + '/lib/**/*',
+                    assets + '/img/**/*',
+                    '!' + assets + '/img/imagemin/**/*',
+                    '!' + assets + '/img/sprite/**/*',
                 ],
                 watchFlag: true,
-                to: dist,
-                devIgnore: false
-            },
-            {
-                // Composer
-                from: [
-                    src + '/vendor/**/*'
-                ],
-                watchFlag: false,
-                to: dist + '/vendor',
-                devIgnore: true // copy --prod の時のみコピーする
-            },
-            {
-                // Node
-                from: [
-                    src + '/node_modules/**/*'
-                ],
-                watchFlag: false,
-                to: dist + '/node_modules',
-                devIgnore: true
+                to: webroot,
             }
         ]
     }

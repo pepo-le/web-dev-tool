@@ -1,5 +1,5 @@
 /**
- * PHPをバリデートして出力
+ * PHPをバリデート
  */
 import gulp from 'gulp';
 import config from '../gulpconfig.js';
@@ -20,10 +20,9 @@ export default function php() {
                 });
             }
         }))
-        .pipe(gulp.dest(config.path.php.dest))
 
     stream.on('end', function () {
         $.browser.reload();
     });
     return stream;
-};
+}

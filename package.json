@@ -31,7 +31,7 @@
     "gulp-eslint": "^4.0.2",
     "gulp-frontnote": "^2.0.1",
     "gulp-header": "^2.0.5",
-    "gulp-htmlhint": "^2.1.1",
+    "gulp-htmlhint": "^2.2.1",
     "gulp-if": "^2.0.2",
     "gulp-ignore": "^2.0.2",
     "gulp-imagemin": "^4.1.0",
@@ -57,7 +57,7 @@
     "run-sequence": "^2.2.1",
     "ts-loader": "^4.5.0",
     "typescript": "^2.9.2",
-    "webpack": "^4.17.1",
+    "webpack": "^4.19.0",
     "webpack-cli": "^2.1.5",
     "webpack-merge": "^4.1.4",
     "webpack-stream": "^4.0.3"

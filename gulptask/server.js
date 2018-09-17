@@ -1,7 +1,6 @@
 /**
  * browser-syncで自動リロード
  */
-import gulp from 'gulp';
 import config from '../gulpconfig.js';
 import $ from './plugins.js';
 
@@ -24,4 +23,4 @@ export default function server() {
         delete options.proxy;
     }
     return $.browser.init(options);
-};
+}

@@ -10,4 +10,4 @@ export default function imagemin() {
         .pipe($.plumber({ errorHandler: $.notify.onError('<%= error.message %>') }))
         .pipe($.imagemin())
         .pipe(gulp.dest(config.path.imagemin.dest));
-};
+}

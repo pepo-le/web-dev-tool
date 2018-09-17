@@ -12,4 +12,4 @@ export default function ejs() {
         .pipe($.ejs(config.ejs, {}, { ext: config.ejs.ext }))
         .pipe(gulp.dest(config.path.ejs.dest))
         .pipe($.browser.stream());
-};
+}

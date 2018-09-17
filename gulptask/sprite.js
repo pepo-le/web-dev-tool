@@ -14,4 +14,4 @@ export default function sprite() {
     const imgStream = spriteData.img.pipe(gulp.dest(config.path.sprite.imgDest));
     const cssStream = spriteData.css.pipe(gulp.dest(config.path.sprite.scssDest));
     return ms(imgStream, cssStream);
-};
+}

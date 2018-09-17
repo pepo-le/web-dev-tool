@@ -29,4 +29,4 @@ export default function webpack() {
         .pipe($.if(env.production, $.uglify()))
         .pipe(gulp.dest(config.path.script.dest))
         .pipe($.browser.stream());
-};
+}
