@@ -4,6 +4,7 @@ module.exports = {
     context: path.resolve(__dirname, '../app/assets/js'),
     entry: './main.js',
     output: {
+        publicPath: '/',
         path: path.resolve(__dirname, '../app/public/js'),
         filename: './[name].js',
     },
