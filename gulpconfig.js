@@ -46,6 +46,10 @@ export default {
         }
     },
     path: {
+        clean: {
+            // TODO: 環境に合わせて変更する
+            src: [webroot + '/*', webroot + '/.*']
+        },
         html: {
             // 出力先のHTMLをチェックする
             src: webroot + '/**/*.html'

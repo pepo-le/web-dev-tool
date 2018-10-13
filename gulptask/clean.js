@@ -6,6 +6,6 @@ import config from '../gulpconfig.js';
 import $ from './plugins.js';
 
 export default function clean() {
-    return gulp.src([config.webroot + '/*', config.webroot + '/.*'], { read: false })
+    return gulp.src(config.path.clean.src, { read: false })
         .pipe($.rimraf());
 }
