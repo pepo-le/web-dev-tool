@@ -1,13 +1,9 @@
-const path = require('path');
+const config = require('../gulpconfig.js');
 
 module.exports = {
-    context: path.resolve(__dirname, '../app/assets/js'),
-    entry: './main.js',
-    output: {
-        publicPath: '/',
-        path: path.resolve(__dirname, '../app/public/js'),
-        filename: './[name].js',
-    },
+    context: config.default.path.webpack.context,
+    entry: config.default.path.webpack.entry,
+    output: config.default.path.webpack.output,
     resolve: {
         extensions:['.ts','.js','.json']
     },

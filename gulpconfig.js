@@ -1,3 +1,5 @@
+import path from 'path';
+
 const app = 'app';
 const assets = app + '/assets';
 const webroot = app + '/public';
@@ -60,13 +62,24 @@ export default {
             dest: webroot
         },
         style: {
-            src: [assets + '/sass/*.scss', '!' + assets + '/sass/_*.scss'],
-            watch: [assets + '/sass/*.scss'],
+            src: [assets + '/sass/**/*.scss', '!' + assets + '/sass/**/_*.scss'],
+            watch: [assets + '/sass/**/*.scss'],
             dest: webroot + '/css'
         },
         script: {
-            src: [assets + '/js/**/*.js', '!' + assets + '/js/vendor/**/*'],
+            src: [assets + '/js/**/*.js', '!' + assets + '/js/node_modules/**/*'],
+            watch: [assets + '/js/**/*.js', '!' + assets + '/js/node_modules/**/*'],
             dest: webroot + '/js'
+        },
+        webpack: {
+            // 詳細はwebpack/以下のファイルで指定する
+            context: path.resolve(__dirname, 'app/assets/js'),
+            entry: './main.js',
+            output: {
+                publicPath: '/',
+                path: path.resolve(__dirname, 'app/public/js'),
+                filename: './[name].js'
+            }
         },
         imagemin: {
             src: assets + '/img/imagemin/*',
