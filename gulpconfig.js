@@ -82,15 +82,22 @@ export default {
         },
         copy: [
             {
-                // All
+                // Image
                 from: [
-                    assets + '/lib/**/*',
                     assets + '/img/**/*',
                     '!' + assets + '/img/imagemin/**/*',
                     '!' + assets + '/img/sprite/**/*',
                 ],
                 watchFlag: true,
-                to: webroot,
+                to: webroot + '/img'
+            },
+            {
+                // Library
+                from: [
+                    assets + '/lib/**/*'
+                ],
+                watchFlag: true,
+                to: webroot + '/lib'
             }
         ]
     }
