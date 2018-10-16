@@ -48,7 +48,8 @@ gulp.task('watch', function () {
     copyfiles.forEach(function (copyfiles) {
         if (copyfiles.watchFlag) {
             watch(copyfiles.from, function () {
-                return copy(copyfiles.from, copyfiles.to);
+                console.log('[' + (new Date()).toTimeString().substr(0, 8) + '] CopyStart');
+                return copy(copyfiles.from, copyfiles.to).on('end', function () { console.log('[' + (new Date()).toTimeString().substr(0, 8) + '] CopyEnd'); });
             });
         }
     });
