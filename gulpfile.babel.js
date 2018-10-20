@@ -1,5 +1,4 @@
 import gulp from 'gulp';
-import watch from 'gulp-watch';
 import ms from 'merge-stream';
 
 import config from './gulpconfig.js';
@@ -26,8 +25,7 @@ gulp.task('script', script);
 gulp.task('imagemin', imagemin);
 gulp.task('sprite', sprite);
 gulp.task('php', php);
-gulp.task('copy', copy);
-gulp.task('copy_init', function () {
+gulp.task('copy', function () {
     const stream = ms();
     copyfiles.forEach(function (copyfiles) {
         stream.add(copy(copyfiles.from, copyfiles.to));
@@ -38,22 +36,21 @@ gulp.task('server', server);
 gulp.task('clean', clean);
 
 gulp.task('watch', function () {
-    watch(config.path.html.src, html);
-    watch(config.path.ejs.src, ejs);
-    watch(config.path.style.watch, style);
-    watch(config.path.php.src, php);
-    watch(config.path.script.src, webpack);
-    // watch(config.path.script.src, script);
+    gulp.watch(config.path.html.src, html);
+    gulp.watch(config.path.ejs.src, ejs);
+    gulp.watch(config.path.style.watch, style);
+    gulp.watch(config.path.php.src, php);
+    gulp.watch(config.path.script.src, webpack);
+    // gulp.watch(config.path.script.src, script);
     // 複製タスクはループで回して監視対象とする
-    copyfiles.forEach(function (copyfiles) {
-        if (copyfiles.watchFlag) {
-            watch(copyfiles.from, function () {
-                console.log('[' + (new Date()).toTimeString().substr(0, 8) + '] CopyStart');
-                return copy(copyfiles.from, copyfiles.to).on('end', function () { console.log('[' + (new Date()).toTimeString().substr(0, 8) + '] CopyEnd'); });
+    copyfiles.forEach(function (files) {
+        if (files.watchFlag) {
+            gulp.watch(files.from, function copy_watch() {
+                return copy(files.from, files.to);
             });
         }
     });
-});
+})
 
-gulp.task('build', gulp.series('clean', gulp.parallel('html', 'ejs', 'style', 'php', 'webpack'), 'copy_init'));
+gulp.task('build', gulp.series('clean', gulp.parallel('html', 'ejs', 'style', 'php', 'webpack'), 'copy'));
 gulp.task('default', gulp.series('build', gulp.parallel('server', 'watch')));
