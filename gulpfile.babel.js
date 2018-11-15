@@ -37,11 +37,11 @@ gulp.task('clean', clean);
 
 gulp.task('watch', function () {
     gulp.watch(config.path.html.src, html);
-    gulp.watch(config.path.ejs.src, ejs);
+    gulp.watch(config.path.ejs.watch, ejs);
     gulp.watch(config.path.style.watch, style);
+    gulp.watch(config.path.webpack.watch, webpack);
+    // gulp.watch(config.path.script.watch, script);
     gulp.watch(config.path.php.src, php);
-    gulp.watch(config.path.script.src, webpack);
-    // gulp.watch(config.path.script.src, script);
     // 複製タスクはループで回して監視対象とする
     copyfiles.forEach(function (files) {
         if (files.watchFlag) {

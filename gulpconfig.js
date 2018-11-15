@@ -79,7 +79,8 @@ export default {
                 publicPath: '/',
                 path: path.resolve(__dirname, 'app/public/js'),
                 filename: './[name].js'
-            }
+            },
+            watch: [assets + '/js/**/*.ts', '!' + assets + '/js/node_modules/**/*']
         },
         imagemin: {
             src: assets + '/img/imagemin/*',
