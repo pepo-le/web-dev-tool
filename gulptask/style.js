@@ -18,6 +18,7 @@ export default function style() {
     config.style = config.style || {};
     const guideOptions = merge({ out: config.webroot + '/styleguide/' }, config.styleguide);
     const sourcemaps = config.style.sourcemaps || 'maps';
+    const filter = $.filter(['**', '!_*.scss']);
 
     return gulp.src(config.path.style.src)
         .pipe($.plumber({ errorHandler: $.notify.onError('<%= error.message %>') }))
@@ -25,6 +26,7 @@ export default function style() {
         .pipe($.sassLint())
         .pipe($.sassLint.format())
         .pipe($.sassLint.failOnError())
+        .pipe(filter)
         .pipe($.if(!env.production, $.sourcemaps.init()))
         .pipe($.sass(config.style.sass))
         .pipe($.postcss([

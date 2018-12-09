@@ -62,7 +62,7 @@ export default {
             dest: webroot
         },
         style: {
-            src: [assets + '/sass/**/*.scss', '!' + assets + '/sass/**/_*.scss'],
+            src: [assets + '/sass/**/*.scss'],
             watch: [assets + '/sass/**/*.scss'],
             dest: webroot + '/css'
         },
