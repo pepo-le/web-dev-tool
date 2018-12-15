@@ -7,6 +7,9 @@ node_modules
 # Vimsessions
 .vimsessions
 
+# Env
+.env
+
 # Others
 /logs
 .sass-cache
