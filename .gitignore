@@ -13,3 +13,4 @@ node_modules
 # Others
 /logs
 .sass-cache
+/app/public

@@ -15,10 +15,6 @@ export default {
         sass: {
             outputStyle: 'compressed'
         },
-        autoprefixer: {
-            browsers: ['last 3 version', 'ie >= 9', 'Android 4.0'],
-            ignore: []
-        },
         mqpacker: {}
     },
     sprite: {
@@ -29,12 +25,6 @@ export default {
         cssVarMap: function (sprite) {
             sprite.name = 'sprite-' + sprite.name;
         }
-    },
-    styleguide: {
-        out: webroot + '/styleguide/',
-        css: '../public/css/style.css',
-        script: '../public/js/script.js',
-        clean: true
     },
     browser: {
         proxy: {
