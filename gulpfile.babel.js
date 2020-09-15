@@ -17,7 +17,6 @@ import clean from './gulptask/clean.js';
 
 const copyfiles = config.path.copy || [];
 
-gulp.task('html', html);
 gulp.task('ejs', ejs);
 gulp.task('style', style);
 gulp.task('webpack', webpack);
@@ -52,5 +51,5 @@ gulp.task('watch', function () {
     });
 })
 
-gulp.task('build', gulp.series('clean', gulp.parallel('html', 'ejs', 'style', 'php', 'webpack'), 'copy'));
+gulp.task('build', gulp.series('clean', gulp.parallel('ejs', 'style', 'php', 'webpack'), 'copy', 'html'));
 gulp.task('default', gulp.series('build', gulp.parallel('server', 'watch')));
