@@ -20,9 +20,11 @@ export default function style() {
 
     return gulp.src(config.path.style.src)
         .pipe($.plumber({ errorHandler: $.notify.onError('<%= error.message %>') }))
-        .pipe($.sassLint())
-        .pipe($.sassLint.format())
-        .pipe($.sassLint.failOnError())
+       .pipe($.stylelint({
+            reporters: [
+                {formatter: 'string', console: true}
+            ]
+        }))
         .pipe(filter)
         .pipe($.if(!env.production, $.sourcemaps.init()))
         .pipe($.sass(config.style.sass))

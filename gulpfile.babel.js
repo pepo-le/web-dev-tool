@@ -24,6 +24,7 @@ gulp.task('script', script);
 gulp.task('imagemin', imagemin);
 gulp.task('sprite', sprite);
 gulp.task('php', php);
+gulp.task('html', html);
 gulp.task('copy', function () {
     const stream = ms();
     copyfiles.forEach(function (copyfiles) {
