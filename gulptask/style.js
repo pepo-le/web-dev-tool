@@ -29,7 +29,7 @@ export default function style() {
         .pipe($.if(!env.production, $.sourcemaps.init()))
         .pipe($.sass(config.style.sass))
         .pipe($.postcss([
-            autoprefixer(config.style.autoprefixer),
+            autoprefixer(),
             cssMqpacker(config.style.mqpacker)
         ]))
         .pipe($.if(!env.production, $.sourcemaps.write(sourcemaps)))
