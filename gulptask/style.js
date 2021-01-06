@@ -20,7 +20,7 @@ export default function style() {
 
     return gulp.src(config.path.style.src)
         .pipe($.plumber({ errorHandler: $.notify.onError('<%= error.message %>') }))
-       .pipe($.stylelint({
+        .pipe($.stylelint({
             reporters: [
                 {formatter: 'string', console: true}
             ]
