@@ -8,8 +8,9 @@ import $ from './plugins.js';
 import minimist from 'minimist';
 const env = minimist(process.argv.slice(2));
 
-import webpack_stream from 'webpack-stream';
-$.webpack = webpack_stream;
+import wp from 'webpack'
+import wps from 'webpack-stream';
+$.webpackStream = wps;
 
 let webpackConfig;
 if (env.production) {
@@ -25,8 +26,7 @@ if (!webpackConfig.entry) {
 export default function webpack() {
     return gulp.src(config.path.script.src)
         .pipe($.plumber({ errorHandler: $.notify.onError('<%= error.message %>') }))
-        .pipe($.webpack(webpackConfig))
-        .pipe($.if(env.production, $.uglify()))
+        .pipe($.webpackStream(webpackConfig, wp))
         .pipe(gulp.dest(config.path.script.dest))
         .pipe($.browser.stream());
 }
