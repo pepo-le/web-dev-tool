@@ -13,6 +13,9 @@ import cssMqpacker from 'css-mqpacker';
 import minimist from 'minimist';
 const env = minimist(process.argv.slice(2));
 
+import sass from 'sass';
+$.sass.compiler = sass;
+
 export default function style() {
     config.style = config.style || {};
     const sourcemaps = config.style.sourcemaps || 'maps';
