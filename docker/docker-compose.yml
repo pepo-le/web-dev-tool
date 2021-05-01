@@ -1,0 +1,25 @@
+version: '3'
+volumes:
+    db-store:
+    php-fpm-socket:
+networks:
+    dev-network:
+services:
+    web:
+        build: ./nginx
+        ports:
+            - 8888:80
+        volumes:
+            - php-fpm-socket:/var/run/php-fpm
+            - ../app/dist:/work/backend
+    db:
+        build: ./mysql
+        ports:
+            - 3306:3306
+        volumes:
+            - db-store:/var/lib/mysql
+    php:
+        build: ./php
+        volumes:
+            - php-fpm-socket:/var/run/php-fpm
+            - ../app/dist:/work/backend

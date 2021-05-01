@@ -1,8 +1,8 @@
 import path from 'path';
 
 const app = 'app';
-const assets = app + '/assets';
-const webroot = app + '/public';
+const sources = app + '/sources';
+const webroot = app + '/dist';
 
 export default {
     app: app,
@@ -47,39 +47,39 @@ export default {
             src: webroot + '/**/*.html'
         },
         ejs: {
-            src: [assets + '/view/**/*.ejs', '!' + assets + '/view/**/_*.ejs'],
-            watch: [assets + '/view/**/*.ejs'],
+            src: [sources + '/view/**/*.ejs', '!' + sources + '/view/**/_*.ejs'],
+            watch: [sources + '/view/**/*.ejs'],
             dest: webroot
         },
         style: {
-            src: [assets + '/sass/**/*.scss'],
-            watch: [assets + '/sass/**/*.scss'],
+            src: [sources + '/sass/**/*.scss'],
+            watch: [sources + '/sass/**/*.scss'],
             dest: webroot + '/css'
         },
         script: {
-            src: [assets + '/js/**/*.js', '!' + assets + '/js/node_modules/**/*'],
-            watch: [assets + '/js/**/*.js', '!' + assets + '/js/node_modules/**/*'],
+            src: [sources + '/js/**/*.js', '!' + sources + '/js/node_modules/**/*'],
+            watch: [sources + '/js/**/*.js', '!' + sources + '/js/node_modules/**/*'],
             dest: webroot + '/js'
         },
         webpack: {
             // 詳細はwebpack/以下のファイルで指定する
-            context: path.resolve(__dirname, 'app/assets/js'),
+            context: path.resolve(__dirname, 'app/sources/js'),
             entry: './main.js',
             output: {
                 publicPath: '/',
-                path: path.resolve(__dirname, 'app/public/js'),
+                path: path.resolve(__dirname, 'app/dist/js'),
                 filename: './[name].js'
             },
-            watch: [assets + '/js/**/*.ts', '!' + assets + '/js/node_modules/**/*']
+            watch: [sources + '/js/**/*.ts', '!' + sources + '/js/node_modules/**/*']
         },
         imagemin: {
-            src: assets + '/img/imagemin/*',
-            dest: assets + '/img'
+            src: sources + '/img/imagemin/*',
+            dest: sources + '/img'
         },
         sprite: {
-            src: assets + '/img/sprite/*',
-            imgDest: assets + '/img',
-            scssDest: assets + '/sass/sprite'
+            src: sources + '/img/sprite/*',
+            imgDest: sources + '/img',
+            scssDest: sources + '/sass/sprite'
         },
         php: {
             src: [app + '/**/*.php', '!' + app + '/vendor/**/*'],
@@ -88,9 +88,9 @@ export default {
             {
                 // Image
                 from: [
-                    assets + '/img/**/*',
-                    '!' + assets + '/img/imagemin/**/*',
-                    '!' + assets + '/img/sprite/**/*',
+                    sources + '/img/**/*',
+                    '!' + sources + '/img/imagemin/**/*',
+                    '!' + sources + '/img/sprite/**/*',
                 ],
                 watchFlag: true,
                 to: webroot + '/img'
@@ -98,7 +98,7 @@ export default {
             {
                 // Library
                 from: [
-                    assets + '/lib/**/*'
+                    sources + '/lib/**/*'
                 ],
                 watchFlag: true,
                 to: webroot + '/lib'
