@@ -6,20 +6,20 @@ networks:
     dev-network:
 services:
     web:
-        build: ./nginx
+        build: ./docker/nginx
         ports:
             - 8888:80
         volumes:
             - php-fpm-socket:/var/run/php-fpm
-            - ../app/dist:/work/backend
+            - ./app/dist:/work/backend
     db:
-        build: ./mysql
+        build: ./docker/mysql
         ports:
             - 3306:3306
         volumes:
             - db-store:/var/lib/mysql
     php:
-        build: ./php
+        build: ./docker/php
         volumes:
             - php-fpm-socket:/var/run/php-fpm
-            - ../app/dist:/work/backend
+            - ./app/dist:/work/backend
