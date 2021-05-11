@@ -2,8 +2,6 @@ version: '3'
 volumes:
     db-store:
     php-fpm-socket:
-networks:
-    dev-network:
 services:
     web:
         build: ./docker/nginx
