@@ -1,4 +1,5 @@
 const config = require('../gulpconfig.js');
+const ESLintPlugin = require('eslint-webpack-plugin');
 
 module.exports = {
     context: config.default.path.webpack.context,
@@ -9,16 +10,6 @@ module.exports = {
     },
     module: {
         rules: [
-            {
-                enforce: 'pre',
-                test: /\.js$/,
-                exclude: /node_modules/,
-                use: [
-                    {
-                        loader: 'eslint-loader'
-                    }
-                ]
-            },
             {
                 test: /\.js$/,
                 exclude: /node_modules/,
@@ -34,5 +25,11 @@ module.exports = {
                 loader:'awesome-typescript-loader'
             }
         ]
-    }
+    },
+    plugins: [
+        new ESLintPlugin({
+            extensions: ['.js', '.ts'],
+            exclude: 'node_modules'
+        })
+    ]
 }
