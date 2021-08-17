@@ -4,11 +4,11 @@ volumes:
     php-fpm-socket:
 services:
     web:
-        build: ./docker/apache
+        build: ./docker/nginx
         ports:
             - 8888:80
         volumes:
-            - ./docker/apache/000-default.conf:/etc/apache2/sites-available/000-default.conf
+            - php-fpm-socket:/var/run/php-fpm
             - ./app/dist:/webroot
     db:
         build: ./docker/mysql
