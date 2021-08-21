@@ -82,7 +82,7 @@ export default {
             scssDest: sources + '/sass/sprite'
         },
         php: {
-            src: [app + '/**/*.php', '!' + app + '/vendor/**/*'],
+            src: [sources + '/**/*.php', '!' + sources + '/vendor/**/*'],
         },
         copy: [
             {

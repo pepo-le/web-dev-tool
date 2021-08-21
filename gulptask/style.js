@@ -14,7 +14,6 @@ import minimist from 'minimist';
 const env = minimist(process.argv.slice(2));
 
 import sass from 'sass';
-$.sass.compiler = sass;
 
 export default function style() {
     config.style = config.style || {};
@@ -30,7 +29,7 @@ export default function style() {
         }))
         .pipe(filter)
         .pipe($.if(!env.production, $.sourcemaps.init()))
-        .pipe($.sass(config.style.sass))
+        .pipe($.sass(sass)(config.style.sass))
         .pipe($.postcss([
             autoprefixer(),
             cssMqpacker(config.style.mqpacker)
