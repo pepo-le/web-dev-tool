@@ -5,6 +5,7 @@ volumes:
 services:
     web:
         build: ./docker/nginx
+        image: nginx-dev
         ports:
             - 8888:80
         volumes:
@@ -12,6 +13,7 @@ services:
             - ./app/dist:/webroot
     db:
         build: ./docker/mysql
+        image: mysql-dev
         ports:
             - 3306:3306
         environment:
@@ -24,6 +26,7 @@ services:
             - db-store:/var/lib/mysql
     php:
         build: ./docker/php
+        image: php-dev
         volumes:
             - php-fpm-socket:/var/run/php-fpm
             - ./app/dist:/webroot
